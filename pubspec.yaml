@@ -34,13 +34,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_sign_in: ^5.2.1
   firebase_auth: ^3.3.0
-  firebase_core: ^1.10.2
+  firebase_core: ^1.10.0
   get_storage: ^2.0.3
   google_fonts: ^2.1.0
   http: ^0.13.4
   flutter:
     sdk: flutter
 
+dependency_overrides:
+  firebase_core_platform_interface: 4.5.1
 
 dev_dependencies:
   flutter_test:
@@ -70,9 +72,17 @@ flutter:
     - assets/images/background2.png
     - assets/images/loginbk.png
     - assets/images/signupbk.png
+    - assets/images/signupbkDK.png
+    - assets/images/loginbkDK.png
     - assets/images/icons/lock.svg
     - assets/images/icons/user.svg
     - assets/images/icons/envelope.svg
+    - assets/images/icons/check.png
+    - assets/images/google.png
+    - assets/images/facebook.png
+    - assets/images/lightGeneralBK.png
+    - assets/images/darkGeneralBK.png
+    - assets/images/forgot_password.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

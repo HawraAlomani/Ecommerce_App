@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/utils/theme.dart';
+import 'package:get/get.dart';
 
 class AuthTextFormField extends StatelessWidget {
   final TextEditingController controller;
@@ -23,11 +24,14 @@ class AuthTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
-      cursorColor: darkPurpleClr,
+      cursorColor: Get.isDarkMode ? darkPurpleClr : Colors.white,
       keyboardType: TextInputType.text,
-      validator: (value) => validator(),
+      style: const TextStyle(color: Colors.white),
+      validator: (value){},
       decoration: InputDecoration(
-        fillColor: mainColor,
+        fillColor: Get.isDarkMode
+            ? Colors.white
+            : const Color.fromARGB(255, 26, 27, 55),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
