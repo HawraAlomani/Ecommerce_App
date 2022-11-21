@@ -29,6 +29,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_toggle_switch: ^0.5.2
   get: ^4.5.1
   flutter_svg: ^1.1.6
   cupertino_icons: ^1.0.2
@@ -83,6 +84,10 @@ flutter:
     - assets/images/lightGeneralBK.png
     - assets/images/darkGeneralBK.png
     - assets/images/forgot_password.png
+    - assets/images/mainBKLight.png
+    - assets/images/mainBKDark.png 
+    - assets/images/icons/shopping-cart.png
+    - assets/images/ADD_FAV.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

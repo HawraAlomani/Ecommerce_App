@@ -1,4 +1,6 @@
 import 'package:ecommerce_app/logic/bindings/auth_binding.dart';
+import 'package:ecommerce_app/logic/bindings/main_binding.dart';
+import 'package:ecommerce_app/logic/bindings/product_binding.dart';
 import 'package:ecommerce_app/view/screens/auth/forgot_password.dart';
 import 'package:ecommerce_app/view/screens/main_screen.dart';
 import 'package:get/get.dart';
@@ -9,7 +11,7 @@ import 'package:ecommerce_app/view/screens/auth/signup_screen.dart';
 class AppRoutes {
   //initialRoute
   static const welcome = Routes.welcomeScreen;
-
+static const mainScreen = Routes.mainScreen;
   //getPages
 
   static final routes = [
@@ -29,7 +31,9 @@ class AppRoutes {
     GetPage(
         name: Routes.mainScreen,
         page: () => MainScreen(),
-        binding: AuthBinding()),
+        bindings: [AuthBinding(), MainBinding(), ProductBinding()]
+        
+        ),
   ];
 }
 

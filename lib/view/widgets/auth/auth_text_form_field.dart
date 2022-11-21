@@ -26,7 +26,7 @@ class AuthTextFormField extends StatelessWidget {
       obscureText: obscureText,
       cursorColor: Get.isDarkMode ? darkPurpleClr : Colors.white,
       keyboardType: TextInputType.text,
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: Get.isDarkMode? Color.fromARGB(255, 53, 53, 53) :Colors.white),
       validator: (value){},
       decoration: InputDecoration(
         fillColor: Get.isDarkMode

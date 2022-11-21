@@ -15,18 +15,7 @@ class ContainerUnder extends StatelessWidget {
       width: double.infinity,
       height: 100,
       decoration:  BoxDecoration(
-        gradient: Get.isDarkMode? const LinearGradient(
-            colors: [mainColor, midPurpleClr],
-            begin: FractionalOffset(0.0, 1.0),
-            end: FractionalOffset(3.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp): const LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 74, 71, 96), Color.fromARGB(255, 26, 27, 55)],
-                begin: FractionalOffset(0.0, 1.0),
-                end: FractionalOffset(3.0, 0.0),
-                stops: [0.0, 1.0],
-                tileMode: TileMode.clamp),
+         
         // color: greenClr,
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(0), topRight: Radius.circular(0)),
