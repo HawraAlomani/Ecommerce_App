@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/logic/controllers/cart_controller.dart';
 import 'package:ecommerce_app/logic/controllers/product%20controller.dart';
+import 'package:ecommerce_app/models/product_models.dart';
 import 'package:ecommerce_app/utils/theme.dart';
 import 'package:ecommerce_app/view/widgets/text_utils.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ class CardItems extends StatelessWidget {
   CardItems({super.key});
   final controller = Get.find<ProductController>();
 
+  final cartController = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,7 @@ class CardItems extends StatelessWidget {
                 price: controller.productList[index].price,
                 rate: controller.productList[index].rating.rate,
                 productId: controller.productList[index].id,
+                productModels: controller.productList[index],
               );
             },
           ),
@@ -45,7 +49,8 @@ class CardItems extends StatelessWidget {
       {required String image,
       required double price,
       required double rate,
-      required int productId}) {
+      required int productId,
+      required ProductModels productModels}) {
     return Padding(
       padding: EdgeInsets.all(5),
       child: Container(
@@ -77,7 +82,9 @@ class CardItems extends StatelessWidget {
                                 color: Colors.black,
                               )),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          cartController.addProductToCart(productModels);
+                        },
                         icon: const Icon(
                           Icons.add,
                           color: Colors.black,

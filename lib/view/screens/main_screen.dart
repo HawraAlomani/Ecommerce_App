@@ -1,4 +1,7 @@
+import 'package:badges/badges.dart';
+import 'package:ecommerce_app/logic/controllers/cart_controller.dart';
 import 'package:ecommerce_app/logic/controllers/main_controller.dart';
+import 'package:ecommerce_app/routes/routes.dart';
 import 'package:ecommerce_app/utils/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +10,7 @@ import 'package:get/get.dart';
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
   final controller = Get.find<MainController>();
-
+final cartController = Get.find<CartController>();
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -66,16 +69,28 @@ class MainScreen extends StatelessWidget {
                 ),
                 leading: Container(),
                 actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: greenClr),
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                                'assets/images/icons/shopping-cart.png'))),
-                  ),
+                  Obx(()=> Badge(
+                        badgeColor: mainColor,
+                        position: BadgePosition.topEnd(top: 0, end: 3),
+                        animationDuration: Duration(milliseconds: 300),
+                        animationType: BadgeAnimationType.slide,
+                        badgeContent: Text(
+                          cartController.quantity().toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle, color: greenClr),
+                              child: IconButton(
+                                  onPressed: () {
+                                    Get.toNamed(Routes.cartScreen);
+                                  },
+                                  icon: Image.asset(
+                                      'assets/images/icons/shopping-cart.png'))),
+                        ),
+                      ))
                 ],
               ),
             ),
