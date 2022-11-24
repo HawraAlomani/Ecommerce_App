@@ -30,6 +30,10 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   badges: ^2.0.3
+  readmore: ^2.2.0
+  flutter_simple_rating_bar: ^0.0.3
+  smooth_page_indicator: ^1.0.0+2
+  carousel_slider: ^4.0.0
   animated_toggle_switch: ^0.5.2
   get: ^4.5.1
   flutter_svg: ^1.1.6
@@ -90,6 +94,8 @@ flutter:
     - assets/images/icons/shopping-cart.png
     - assets/images/ADD_FAV.png
     - assets/images/icons/empty-cart.png
+    - assets/images/search_notfound_dark.png
+    - assets/images/search_notfound_light.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

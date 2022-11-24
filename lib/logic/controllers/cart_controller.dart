@@ -37,7 +37,9 @@ class CartController extends GetxController {
       middleText: 'Are you sure you want to clear all products?',
       middleTextStyle: const TextStyle(
           fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
-      backgroundColor: const Color.fromARGB(67, 255, 255, 255),
+       backgroundColor: Get.isDarkMode
+          ? Color.fromARGB(255, 100, 106, 194)
+          : Color.fromARGB(255, 56, 51, 65),
       radius: 16,
       textCancel: 'No',
       cancelTextColor: Colors.white,

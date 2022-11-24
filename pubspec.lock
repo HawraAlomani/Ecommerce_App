@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.1"
   characters:
     dependency: transitive
     description:
@@ -160,6 +167,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_simple_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_simple_rating_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -394,11 +408,25 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  readmore:
+    dependency: "direct main"
+    description:
+      name: readmore
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.99"
+  smooth_page_indicator:
+    dependency: "direct main"
+    description:
+      name: smooth_page_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+2"
   source_span:
     dependency: transitive
     description:

@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children:  [
                     TextUtils(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
