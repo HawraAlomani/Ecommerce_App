@@ -1,15 +1,18 @@
 import 'package:ecommerce_app/logic/controllers/auth_controller.dart';
+import 'package:ecommerce_app/logic/controllers/settings_controller.dart';
 import 'package:ecommerce_app/logic/controllers/theme_controller.dart';
 import 'package:ecommerce_app/utils/theme.dart';
 import 'package:ecommerce_app/view/widgets/text_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'dart:ui' as ui;
 
 import 'package:get/get.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({super.key});
+
+  final controller = Get.put(SettingController());
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -59,20 +62,22 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  TextUtils(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      text: 'Hawra Alomani',
-                      color: Get.isDarkMode
-                          ? Color.fromARGB(159, 20, 18, 18)
-                          : Colors.grey),
+                Obx(() =>   TextUtils(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        text: controller
+                            .capitalize(authController.displayUserName.value),
+                        color: Get.isDarkMode
+                            ? Color.fromARGB(159, 20, 18, 18)
+                            : Colors.grey),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
                   TextUtils(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      text: 'hoor.dream@hotmail.com',
+                      text: authController.displayUserEmail.value,
                       color: Get.isDarkMode
                           ? Color.fromARGB(159, 20, 18, 18)
                           : Colors.grey),

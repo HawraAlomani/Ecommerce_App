@@ -11,11 +11,17 @@ class AuthController extends GetxController {
   bool isVisibility = false;
   bool isCheckBox = false;
   FirebaseAuth auth = FirebaseAuth.instance;
-  var displayUserName = '';
+  var displayUserName = ''.obs;
+  var displayUserEmail = ''.obs;
   var googleSignIn = GoogleSignIn();
   var displayUserPhoto = '';
   var isSignedIn = false;
   final GetStorage authBox = GetStorage();
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
 
   void visibility() {
     isVisibility = !isVisibility;
@@ -39,8 +45,10 @@ class AuthController extends GetxController {
         password: password,
       )
           .then((value) {
-        displayUserName = name;
+        displayUserName.value = name;
+        displayUserEmail.value = email;
         auth.currentUser!.updateDisplayName(name);
+        auth.currentUser!.updateEmail(email);
       });
       update();
       Get.offNamed(Routes.mainScreen);
@@ -71,7 +79,11 @@ class AuthController extends GetxController {
     try {
       await auth
           .signInWithEmailAndPassword(email: email, password: password)
-          .then((value) => displayUserName = auth.currentUser!.displayName!);
+          .then((value) {
+        displayUserName.value = auth.currentUser!.displayName!;
+        displayUserEmail.value = auth.currentUser!.email!;
+      });
+
       isSignedIn = true;
       authBox.write('auth', isSignedIn);
 
@@ -103,7 +115,7 @@ class AuthController extends GetxController {
   void googleSignUpApp() async {
     try {
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-      displayUserName = googleUser!.displayName!;
+      displayUserName.value = googleUser!.displayName!;
       displayUserPhoto = googleUser.photoUrl!;
       isSignedIn = true;
       authBox.write('auth', isSignedIn);
@@ -149,7 +161,7 @@ class AuthController extends GetxController {
       await auth.signOut();
       await googleSignIn.signOut();
       // await FacebookAuth.i.logOut();
-      displayUserName = '';
+      displayUserName.value = '';
       displayUserPhoto = '';
       isSignedIn = false;
       authBox.remove('auth');
